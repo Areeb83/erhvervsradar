@@ -1,0 +1,81 @@
+/* Erhvervsradar: one centered task per screen, one big button.
+   Restyles Streamlit's own widgets; selectors checked against the
+   Streamlit version pinned in requirements.txt. */
+header[data-testid="stHeader"], [data-testid="stToolbar"] { display: none; }
+[data-testid="stMainBlockContainer"] { padding-top: 7.5rem; padding-bottom: 6rem; max-width: 980px; }
+
+.er-bar {
+  position: fixed; inset: 0 0 auto 0; z-index: 999990; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 28px; background: #fff; border-bottom: 1px solid #e3e6e1;
+}
+.er-logo { font-size: 1.45rem; font-weight: 800; letter-spacing: -0.02em; color: #26302b; text-decoration: none; }
+.er-logo span { color: #1e7a4c; }
+.er-bar nav { display: flex; gap: 24px; font-size: 0.95rem; }
+.er-bar nav a { color: #26302b; text-decoration: none; font-weight: 600; }
+.er-bar nav a:hover { color: #1e7a4c; }
+.er-foot {
+  position: fixed; inset: auto 0 0 0; z-index: 999990; padding: 12px 28px;
+  background: #fafbf9; border-top: 1px solid #e3e6e1; font-size: 0.85rem; color: #5d6a63;
+}
+.er-foot a { color: inherit; }
+
+.er-title { text-align: center; font-size: 2.6rem; font-weight: 800; line-height: 1.15;
+            letter-spacing: -0.02em; margin: 0 0 0.6rem; color: #26302b; }
+.er-sub { text-align: center; font-size: 1.2rem; color: #4b5650; line-height: 1.5;
+          max-width: 40rem; margin: 0 auto 2rem; }
+.er-note { text-align: center; color: #5d6a63; margin: 0.4rem 0 0; font-size: 0.95rem; }
+
+/* The upload box becomes one big button with "or drop it here" under it. */
+[data-testid="stFileUploader"] { max-width: 420px; margin: 0 auto; }
+[data-testid="stFileUploaderDropzone"] {
+  background: none; border: none; padding: 0; display: flex; flex-direction: column; align-items: stretch;
+}
+[data-testid="stFileUploaderDropzone"] button {
+  width: 100%; height: 92px; border-radius: 12px; border: none;
+  background: #1e7a4c; color: #fff; box-shadow: 0 6px 18px rgba(30, 122, 76, 0.28);
+}
+[data-testid="stFileUploaderDropzone"] button:hover { background: #18663f; color: #fff; }
+[data-testid="stFileUploaderDropzone"] button:focus-visible { outline: 3px solid #26302b; outline-offset: 3px; }
+[data-testid="stFileUploaderDropzone"] button [data-testid="stIconMaterial"],
+[data-testid="stFileUploaderDropzone"] button p { display: none; }
+[data-testid="stFileUploaderDropzone"] button > div::after {
+  content: "Select Excel file"; font-size: 1.6rem; font-weight: 700;
+}
+[data-testid="stFileUploaderDropzoneInstructions"] { margin: 14px auto 0; }
+[data-testid="stFileUploaderDropzoneInstructions"] span { display: none; }
+[data-testid="stFileUploaderDropzoneInstructions"] div::after {
+  content: "or drop it here (.xlsx or .csv)"; color: #5d6a63; font-size: 1rem;
+}
+[data-testid="stFileUploaderFile"] { display: none; }
+
+/* Big centered action buttons, and buttons that look like links. */
+.st-key-start, .st-key-download, .st-key-sample, .st-key-again, .st-key-retry, .st-key-stop {
+  width: 100% !important; display: flex; justify-content: center;
+}
+/* Streamlit wraps buttons in a full-width or fit-content div; center both kinds. */
+.st-key-start > div, .st-key-download > div, .st-key-sample > div,
+.st-key-again > div, .st-key-retry > div, .st-key-stop > div {
+  width: 100%; display: flex; justify-content: center;
+}
+.st-key-start button, .st-key-download button {
+  width: 420px; max-width: 100%; height: 84px; border-radius: 12px; font-size: 1.5rem;
+  box-shadow: 0 6px 18px rgba(30, 122, 76, 0.28);
+}
+.st-key-start button p, .st-key-download button p { font-size: 1.5rem; font-weight: 700; }
+.st-key-sample button, .st-key-again button, .st-key-retry button, .st-key-stop button {
+  background: none; border: none; box-shadow: none; padding: 0; min-height: 0;
+  color: #1e7a4c; text-decoration: underline; text-underline-offset: 3px;
+}
+.st-key-sample button:hover, .st-key-again button:hover, .st-key-retry button:hover,
+.st-key-stop button:hover { background: none; color: #18663f; }
+.st-key-sample { margin-top: 1.4rem; }
+[data-testid="stExpander"], [data-testid="stProgress"] { max-width: 760px; margin-left: auto; margin-right: auto; }
+
+@media (max-width: 640px) {
+  .er-title { font-size: 2rem; }
+  .er-sub { font-size: 1.05rem; }
+  .er-bar { padding: 0 16px; }
+  .er-bar nav { gap: 14px; font-size: 0.85rem; }
+  .st-key-start button, .st-key-download button { width: 100%; }
+}

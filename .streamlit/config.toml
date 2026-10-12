@@ -1,0 +1,16 @@
+[theme]
+base = "light"
+primaryColor = "#1e7a4c"
+backgroundColor = "#f4f5f3"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#26302b"
+font = "sans serif"
+
+[server]
+maxUploadSize = 5  # MB; a sheet of 200 links is a few kilobytes
+
+[browser]
+gatherUsageStats = false
+
+[client]
+toolbarMode = "minimal"

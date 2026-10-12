@@ -1,0 +1,25 @@
+{
+  "name": "erhvervsradar-web",
+  "private": true,
+  "type": "module",
+  "description": "Upload a spreadsheet of property URLs, get it back with the listing details filled in.",
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@netlify/functions": "^5.0.4",
+    "cheerio": "^1.2.0",
+    "robots-parser": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "exceljs": "^4.4.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=20.18.1"
+  }
+}

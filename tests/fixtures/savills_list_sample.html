@@ -1,0 +1,56 @@
+<!doctype html>
+<!--
+  Hand-made sample that mirrors a Savills Denmark search-results page
+  (cards with image link + title link, "Ny" badge, size/price ranges,
+  a zero-width space inside the price range, agent block, next-page link).
+  Replace with a real snapshot:
+    erhvervsradar save-fixture "<list-url>" tests/fixtures/savills_list_real.html
+-->
+<html lang="da">
+<head><title>Kontor til leje i Danmark | Savills</title></head>
+<body>
+<div id="root">
+  <h1>14 Kontorer til leje i Danmark</h1>
+  <ul class="sv-results">
+    <li>
+      <div class="sv-card">
+        <a href="/dk/da/ejendomsoplysninger/a80bac85-cb55-4f31-8b55-1fc457e395cb"><img src="x.jpg" alt=""></a>
+        <span>1/9</span><button>Gem</button>
+        <div class="sv-card__body">
+          <a href="/dk/da/ejendomsoplysninger/a80bac85-cb55-4f31-8b55-1fc457e395cb"><h3>Rosenkæret 13 2.th.…</h3></a>
+          <p>2860 Søborg</p>
+          <p>288 til 288 m²</p>
+          <p>Udbudspris 228.470 kr.</p>
+          <p>Årlig leje</p>
+          <ul><li>Lyst og indbydende kontor…</li></ul>
+          <div class="agent"><h6>Frederik Gade Høier</h6><a href="tel:+4533646574">+45 3364 6574</a></div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="sv-card">
+        <a href="/dk/da/ejendomsoplysninger/1087c4ba-9c56-4aae-80c8-b90dcf9edab3"><img src="y.jpg" alt=""></a>
+        <span>Ny</span><span>1/10</span><button>Gem</button>
+        <div class="sv-card__body">
+          <a href="/dk/da/ejendomsoplysninger/1087c4ba-9c56-4aae-80c8-b90dcf9edab3"><h3>Jenagade 22…</h3></a>
+          <p>2300 København S</p>
+          <p>601 til 1.281 m²</p>
+          <p>Udbudspris 450.750 kr. -&#8203; 1.402.695 kr.</p>
+          <p>Årlig leje</p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="sv-card">
+        <a href="/dk/da/ejendomsoplysninger/dff8a9c0-92ab-4c6e-afce-f1d7e327c393"><h3>Rygårds Allé 133…</h3></a>
+        <p>2900 Hellerup</p>
+        <p>696 m²</p>
+        <p>Udbudspris 1.009.200 kr.</p>
+        <p>Årlig leje</p>
+      </div>
+    </li>
+  </ul>
+  <nav class="pagination"><a rel="next" href="/dk/da/liste/forretningsmaessig/ejendom-til-leje/kontor/danmark?Page=2">Næste</a></nav>
+</div>
+</body>
+</html>

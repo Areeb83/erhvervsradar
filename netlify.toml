@@ -1,0 +1,19 @@
+# Netlify serves the upload page from web/ and runs one function,
+# netlify/functions/crawl.mts, at /api/crawl. Netlify installs the npm
+# dependencies from package.json and bundles the function automatically.
+[build]
+  publish = "web"
+  command = ""
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

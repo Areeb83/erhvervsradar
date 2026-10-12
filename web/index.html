@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Erhvervsradar: check property listings in Excel</title>
+  <meta name="description" content="Upload an Excel sheet of links to Danish commercial lease listings and get it back with address, size, rent and status filled in.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231e7a4c'/%3E%3Cpath d='M8 11h16M8 16h16M8 21h16M14 8v16' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
+</head>
+<body>
+  <header class="bar">
+    <a class="logo" href="./">Erhvervs<span>radar</span></a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="https://github.com/Areeb83/erhvervsradar">Source code</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. Choose a file -->
+    <section id="step-upload" class="step">
+      <h1>Check property listings in Excel</h1>
+      <p class="sub">
+        Upload an Excel sheet with links to EDC Erhverv or Savills listings.
+        Get it back with address, size, rent and status filled in.
+      </p>
+      <label class="big-button" for="file">
+        Select Excel file
+        <input type="file" id="file" accept=".xlsx,.csv" class="visually-hidden">
+      </label>
+      <p class="hint">or drop it here (.xlsx or .csv)</p>
+      <button type="button" class="link sample" id="example">Don't have a file? Download the sample Excel sheet</button>
+      <p class="error" id="upload-error" role="alert" hidden></p>
+    </section>
+
+    <!-- 2. Confirm what was found -->
+    <section id="step-confirm" class="step" hidden>
+      <h1 id="confirm-title">Ready to check</h1>
+      <p class="sub" id="confirm-detail"></p>
+      <button type="button" class="big-button" id="start">Check links</button>
+      <p class="hint" id="confirm-time"></p>
+      <button type="button" class="link" data-restart>Choose another file</button>
+    </section>
+
+    <!-- 3. Progress, then download -->
+    <section id="step-run" class="step" hidden>
+      <h1 id="run-title">Checking links…</h1>
+      <p class="sub" id="run-status" aria-live="polite"></p>
+      <ul class="badges" id="summary" aria-label="Results" hidden></ul>
+
+      <div id="run-actions">
+        <div class="progress" role="progressbar" aria-labelledby="run-title" aria-valuemin="0" id="progress">
+          <span id="progress-bar"></span>
+        </div>
+        <p class="hint" id="progress-text"></p>
+        <button type="button" class="link" id="stop">Stop and keep the results so far</button>
+      </div>
+
+      <div id="done-actions" hidden>
+        <button type="button" class="big-button" id="download">Download Excel file</button>
+        <button type="button" class="link" data-restart>Check another file</button>
+      </div>
+    </section>
+
+    <details class="how" id="how">
+      <summary>How it works, and which links are supported</summary>
+      <h2>Supported links</h2>
+      <ul>
+        <li>EDC Erhverv lease listings, like
+          <code>https://www.edc.dk/erhverv/erhvervslejemaal/kontor/1552-koebenhavn-v/vester-voldgade-104/114058334/</code></li>
+        <li>Savills Denmark listings, like
+          <code>https://search.savills.com/dk/da/ejendomsoplysninger/dff8a9c0-92ab-4c6e-afce-f1d7e327c393</code></li>
+      </ul>
+      <p>Other links stay in your file and get a note in the Result column.</p>
+      <h2>What you get back</h2>
+      <p>The same sheet, with your own columns untouched and these added: Result, Address,
+        Postcode, City, Property type, Size m², Rent per year, Rent per m², Source,
+        Checked at, and a Note when something went wrong.</p>
+      <h2>Your file stays with you</h2>
+      <p>The file is read and filled in inside your browser. Only the links are sent, one at a
+        time, and nothing is stored.</p>
+      <h2>Polite to the sites</h2>
+      <p>robots.txt is followed, there are 2 seconds between EDC pages and 5 seconds between
+        Savills pages, and each answer is remembered for an hour so the same listing isn't
+        fetched again and again.</p>
+    </details>
+  </main>
+
+  <footer class="foot">© 2026 Erhvervsradar · Built by Areeb Abbas · Listing details belong to the sites they come from</footer>
+
+  <div class="drop-overlay" id="drop-overlay" hidden>
+    <p>Drop your Excel file to check it</p>
+  </div>
+
+  <script src="vendor/exceljs.min.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
