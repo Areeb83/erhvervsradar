@@ -3,7 +3,7 @@
 Upload an Excel sheet of links to Danish commercial lease listings, and get the same
 sheet back with **address, size, rent and status** filled in.
 
-**Try it:** https://YOUR-SITE.netlify.app <!-- replace after deploying -->
+**Try it:** https://erhvervsradar.netlify.app/
 (click "Download the sample Excel sheet", then upload it)
 
 | Upload | Result |
